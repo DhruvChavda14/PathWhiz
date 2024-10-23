@@ -1,0 +1,133 @@
+.node {
+    width: 25px;
+    height: 25px;
+    outline: 1px solid rgb(175, 216, 248);
+    
+    display: inline-flex;
+    position: relative;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    border-radius: 5px;
+    /* Rounded corners for nodes */
+    background-color: #ffffff;
+    /* Default background color for nodes */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for nodes */
+}
+
+.node:hover {
+    background-color: rgba(0, 176, 255, 0.3);
+    /* Hover effect for nodes */
+    cursor: pointer;
+    /* Change cursor on hover */
+}
+
+.symbol {
+    line-height: 1;
+    /* Ensure the symbol doesn’t affect height */
+    margin: 0;
+    /* Remove margin to keep it centered */
+    position: absolute;
+    /* Position the symbol absolutely within the node */
+    top: 50%;
+    /* Center it vertically */
+    left: 50%;
+    /* Center it horizontally */
+    transform: translate(-50%, -50%);
+    /* Adjust position to center */
+}
+
+.node-start {
+    background: linear-gradient(145deg, rgba(76, 175, 80, 0.8), rgba(46, 125, 50, 0.8));
+    /* Gradient background */
+    border-radius: 5px;
+    /* Rounded corners */
+    box-shadow: 5px 5px 15px rgba(0, 255, 0, 0.5), inset 0 0 10px rgba(0, 255, 0, 0.3);
+    /* Outer and inner shadow */
+    transition: transform 0.3s;
+    /* Animation on hover */
+}
+
+.node-start:hover {
+    transform: scale(1.05);
+    /* Slightly scale up on hover */
+}
+
+.node-finish {
+    background: linear-gradient(145deg, rgba(255, 0, 0, 0.8), rgba(198, 40, 40, 0.8));
+    /* Gradient background */
+    border-radius: 5px;
+    /* Rounded corners */
+    box-shadow: 5px 5px 15px rgba(255, 0, 0, 0.5), inset 0 0 10px rgba(255, 0, 0, 0.3);
+    /* Outer and inner shadow */
+    transition: transform 0.3s;
+    /* Animation on hover */
+}
+
+.node-finish:hover {
+    transform: scale(1.05);
+    /* Slightly scale up on hover */
+}
+
+.node-visited {
+    animation-name: visitedAnimation;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes visitedAnimation {
+    0% {
+        transform: scale(0.5);
+        background-color: rgba(64, 224, 208, 0.75);
+        /* Soft Teal */
+        box-shadow: 0 0 5px rgba(64, 224, 208, 0.75);
+    }
+
+    50% {
+        background-color: rgba(30, 144, 255, 0.75);
+        /* Dodger Blue */
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(30, 144, 255, 0.75);
+    }
+
+    100% {
+        transform: scale(1);
+        background-color: rgba(0, 191, 255, 0.85);
+        /* Deep Sky Blue */
+        box-shadow: 0 0 5px rgba(0, 191, 255, 0.85);
+    }
+}
+
+.node-wall {
+    background-color: rgb(12, 53, 71);
+}
+
+.node-shortest-path {
+    animation-name: shortestPathAnimation;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes shortestPathAnimation {
+    0% {
+        transform: scale(0.8);
+        background-color: rgba(255, 165, 0, 0.8);
+        /* Soft Orange */
+        box-shadow: 0 0 5px rgba(255, 165, 0, 0.8);
+    }
+
+    50% {
+        transform: scale(1.1);
+        background-color: rgba(255, 69, 0, 0.8);
+        /* Bright Orange Red */
+        box-shadow: 0 0 15px rgba(255, 69, 0, 0.8);
+    }
+
+    100% {
+        transform: scale(1);
+        background-color: rgba(255, 140, 0, 0.8);
+        /* Medium Orange */
+        box-shadow: 0 0 5px rgba(255, 140, 0, 0.8);
+    }
+}
